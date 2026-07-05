@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Year 7 Chemistry Revision</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f8f7;
+      --panel: #ffffff;
+      --ink: #15201d;
+      --muted: #60716c;
+      --line: #d8e5e1;
+      --accent: #136f63;
+      --accent-2: #e6f4f1;
+      --warn: #fff4df;
+      --danger: #8b2e20;
+      --shadow: 0 10px 30px rgba(21, 32, 29, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 36px;
+      display: grid;
+      gap: 18px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: end;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      letter-spacing: 0;
+    }
+
+    h2 { font-size: 1.35rem; }
+    h3 { font-size: 1rem; }
+
+    .sub {
+      margin-top: 6px;
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 76ch;
+    }
+
+    .exam {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      min-width: 170px;
+    }
+
+    .exam strong {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 650;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 16px;
+      display: grid;
+      gap: 14px;
+      padding: 14px;
+    }
+
+    .audio-controls, .tools {
+      display: grid;
+      gap: 10px;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    button, select, input { font: inherit; }
+
+    button {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 9px 10px;
+      cursor: pointer;
+    }
+
+    button:hover { border-color: var(--accent); }
+
+    button.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    button.active {
+      background: var(--accent-2);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    select, input[type="range"] {
+      width: 100%;
+    }
+
+    select {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 9px 10px;
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .status {
+      min-height: 1.4em;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .topic-nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .topic-button {
+      text-align: left;
+      display: grid;
+      gap: 3px;
+    }
+
+    .topic-button span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .content {
+      display: grid;
+      gap: 14px;
+      padding: 18px;
+    }
+
+    .topic-head {
+      display: grid;
+      gap: 8px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: var(--accent-2);
+      color: var(--accent);
+      padding: 4px 9px;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 13px;
+      display: grid;
+      gap: 8px;
+      background: #fff;
+      min-width: 0;
+    }
+
+    .card p, li {
+      line-height: 1.48;
+    }
+
+    .mini-title {
+      color: var(--muted);
+      font-size: 0.83rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li + li { margin-top: 5px; }
+
+    .practical {
+      background: var(--warn);
+      border-color: #ead5ac;
+    }
+
+    .practical .mini-title { color: var(--danger); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      padding: 8px 6px;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: #fff;
+    }
+
+    details[open] {
+      background: var(--accent-2);
+      border-color: var(--accent);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 720;
+      line-height: 1.45;
+    }
+
+    details p {
+      margin-top: 8px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .speaker-line {
+      border-left: 4px solid var(--accent);
+      padding: 9px 10px;
+      background: var(--accent-2);
+      border-radius: 8px;
+      line-height: 1.5;
+    }
+
+    .diagram-card {
+      grid-column: 1 / -1;
+    }
+
+    .diagram {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfdfc;
+    }
+
+    .diagram svg {
+      display: block;
+      width: 100%;
+      min-width: 660px;
+      height: auto;
+    }
+
+    .label-check {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .exam-practice {
+      grid-column: 1 / -1;
+      background: #f9fcfb;
+    }
+
+    .task-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .task-prompt {
+      color: var(--ink);
+      line-height: 1.48;
+    }
+
+    .task-type {
+      display: inline-flex;
+      width: fit-content;
+      border-radius: 999px;
+      background: var(--accent-2);
+      color: var(--accent);
+      padding: 3px 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .memory-card {
+      background: #fffdf7;
+      border-color: #ead5ac;
+    }
+
+    .memory-card .mini-title {
+      color: #8b5b12;
+    }
+
+    .hidden { display: none; }
+
+    @media (max-width: 840px) {
+      main { width: min(100% - 20px, 1180px); padding-top: 14px; }
+      header { grid-template-columns: 1fr; }
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .grid { grid-template-columns: 1fr; }
+      .label-check { grid-template-columns: 1fr; }
+      .buttons { grid-template-columns: 1fr; }
+      button, select { min-height: 44px; }
+      .diagram svg { min-width: 620px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Year 7 Chemistry Revision</h1>
+        <p class="sub">Light, exam-focused study for Matter and Particles, Chemical Reactions, Separating Mixtures, and Acids, Alkalis and pH. Short blocks, practical skills, quick recall, and UK voice audio.</p>
+      </div>
+      <div class="exam">
+        <strong>Study mode</strong>
+        Ready for tomorrow
+      </div>
+    </header>
+
+    <section class="layout">
+      <aside class="panel sidebar">
+        <div class="audio-controls">
+          <div class="buttons">
+            <button class="primary" type="button" id="play">Play</button>
+            <button type="button" id="pause">Pause</button>
+            <button type="button" id="stop">Stop</button>
+          </div>
+
+          <label>
+            Speed
+            <input id="rate" type="range" min="0.75" max="1.15" step="0.05" value="0.9">
+          </label>
+
+          <label>
+            Voice
+            <select id="voice"></select>
+          </label>
+
+          <div class="status" id="status">Ready. Choose a topic and press Play.</div>
+        </div>
+
+        <div class="tools">
+          <div class="buttons">
+            <button class="active" type="button" data-mode="study">Study</button>
+            <button type="button" data-mode="exam">Exam</button>
+            <button type="button" data-mode="quiz">Quiz</button>
+            <button type="button" data-mode="script">Script</button>
+          </div>
+        </div>
+
+        <nav class="topic-nav" id="topicNav" aria-label="Chemistry topics"></nav>
+      </aside>
+
+      <article class="panel content" id="content"></article>
+    </section>
+  </main>
+
+  <script>
+    const topics = [
+      {
+        title: "Topic 1: Matter and Particles",
+        subtitle: "States of matter, particles, atoms, elements, compounds, periodic table basics, and Bunsen burner safety.",
+        examFocus: ["Particle model", "Changes of state", "Bunsen burner", "Periodic table"],
+        bigIdea: "Everything is made of tiny particles. The way particles are arranged and move explains solids, liquids, gases, and changes of state.",
+        mustKnow: [
+          { title: "Solids, liquids and gases", text: "In a solid, particles are close together and vibrate in fixed positions. In a liquid, particles are close together but can slide past each other. In a gas, particles are far apart and move quickly in all directions." },
+          { title: "Changes of state", text: "Melting, freezing, boiling, evaporation and condensation are physical changes. The substance is still the same substance; only the arrangement and energy of the particles change." },
+          { title: "Temperature during melting or boiling", text: "During a change of state, the temperature usually stays steady because energy is being used to change the particle arrangement, not to make the substance hotter." },
+          { title: "Atoms, elements and compounds", text: "An atom is a tiny particle of matter. An element contains only one type of atom. A compound contains atoms of different elements chemically joined together." },
+          { title: "Metals and non-metals", text: "Metals are often shiny, strong, good conductors and have high melting points. Non-metals are often dull, brittle if solid, and poor conductors." },
+          { title: "Periodic table basics", text: "The periodic table arranges elements in rows and columns. Elements with similar properties are often in the same group, such as Group 1 alkali metals and Group 7 halogens." }
+        ],
+        practical: [
+          "Use a Bunsen burner safely: yellow safety flame when not heating; blue flame for heating.",
+          "Observe water changing state when heating and cooling.",
+          "Measure temperature during a change of state and notice when it levels off."
+        ],
+        memory: {
+          title: "Periodic table mini-guide and memory hooks",
+          points: [
+            "Element: one type of atom only. Memory hook: element = elementary = one basic substance.",
+            "Periodic table: a chart that organises all known elements. Memory hook: table = organised rows and columns.",
+            "Group: a vertical column. Elements in the same group often have similar properties. Memory hook: group = goes down.",
+            "Period: a horizontal row. Memory hook: period = sentence line, so it goes across.",
+            "Alkali metals: Group 1 metals, such as lithium, sodium and potassium. They react strongly, especially with water. Memory hook: Group 1 = one outer electron = very keen to react.",
+            "Halogens: Group 7 non-metals, such as chlorine, bromine and iodine. They often form salts. Memory hook: halogen means salt-maker.",
+            "Metals: usually shiny and good conductors. Memory hook: metal = moves electricity.",
+            "Non-metals: usually poor conductors and often dull or brittle when solid. Memory hook: non-metal = not good with electricity."
+          ]
+        },
+        diagram: {
+          title: "Exam diagram: particles and Bunsen flame",
+          svg: `<svg viewBox="0 0 760 250" role="img" aria-label="Particle diagrams and Bunsen flame">
+            <rect width="760" height="250" fill="#fbfdfc"/>
+            <text x="38" y="30" font-size="18" font-weight="700" fill="#15201d">Solid</text>
+            <text x="278" y="30" font-size="18" font-weight="700" fill="#15201d">Liquid</text>
+            <text x="516" y="30" font-size="18" font-weight="700" fill="#15201d">Gas</text>
+            <rect x="30" y="50" width="150" height="120" rx="8" fill="#e6f4f1" stroke="#136f63"/>
+            <rect x="270" y="50" width="150" height="120" rx="8" fill="#e6f4f1" stroke="#136f63"/>
+            <rect x="510" y="50" width="150" height="120" rx="8" fill="#e6f4f1" stroke="#136f63"/>
+            <g fill="#136f63">
+              <circle cx="65" cy="80" r="12"/><circle cx="105" cy="80" r="12"/><circle cx="145" cy="80" r="12"/>
+              <circle cx="65" cy="115" r="12"/><circle cx="105" cy="115" r="12"/><circle cx="145" cy="115" r="12"/>
+              <circle cx="65" cy="150" r="12"/><circle cx="105" cy="150" r="12"/><circle cx="145" cy="150" r="12"/>
+              <circle cx="315" cy="88" r="12"/><circle cx="350" cy="74" r="12"/><circle cx="382" cy="100" r="12"/>
+              <circle cx="300" cy="132" r="12"/><circle cx="338" cy="122" r="12"/><circle cx="378" cy="145" r="12"/>
+              <circle cx="540" cy="80" r="10"/><circle cx="630" cy="70" r="10"/><circle cx="575" cy="132" r="10"/><circle cx="645" cy="150" r="10"/>
+            </g>
+            <text x="35" y="205" font-size="15" fill="#60716c">Close, regular, vibrate</text>
+            <text x="270" y="205" font-size="15" fill="#60716c">Close, random, slide</text>
+            <text x="510" y="205" font-size="15" fill="#60716c">Far apart, fast movement</text>
+            <path d="M710 178 h28 v40 h-28 z" fill="#6f7774" stroke="#15201d"/>
+            <path d="M724 50 C690 108 706 142 724 178 C742 142 758 108 724 50Z" fill="#2f80ed" stroke="#136f63"/>
+            <path d="M724 82 C708 121 716 145 724 170 C732 145 740 121 724 82Z" fill="#ffd166"/>
+            <text x="678" y="232" font-size="14" fill="#60716c">Bunsen flame</text>
+          </svg>`,
+          labels: [
+            ["Which box shows particles in fixed positions?", "Solid."],
+            ["Which flame is the heating flame?", "The blue flame."],
+            ["What should happen to temperature during a change of state?", "It should level off or stay steady for a while."]
+          ]
+        },
+        vocab: [
+          ["particle", "particula"], ["solid", "solido"], ["liquid", "liquido"], ["gas", "gas"],
+          ["melting", "fusion"], ["freezing", "congelacion"], ["boiling", "ebullicion"], ["condensation", "condensacion"],
+          ["atom", "atomo"], ["element", "elemento"], ["compound", "compuesto"], ["periodic table", "tabla periodica"],
+          ["group", "grupo"], ["alkali metal", "metal alcalino"], ["halogen", "halogeno"], ["Bunsen burner", "mechero Bunsen"]
+        ],
+        questions: [
+          ["Why does a solid keep its shape?", "Its particles vibrate in fixed positions and cannot move freely past each other."],
+          ["What happens to particles when a liquid boils?", "They gain enough energy to move far apart and become a gas."],
+          ["What is the difference between an element and a compound?", "An element has one type of atom; a compound has different elements chemically joined."],
+          ["What does the periodic table arrange?", "Elements."],
+          ["What is special about elements in the same group?", "They often have similar properties."],
+          ["Which Bunsen flame is used for heating?", "The blue flame, because it is hotter."],
+          ["Why can temperature stay constant during melting?", "Energy is being used to change state instead of raising temperature."]
+        ],
+        examPractice: [
+          ["Fill the gaps", "A solid has particles that are close together and vibrate in ______ positions. A gas has particles that are far apart and move ______.", "fixed; quickly"],
+          ["Draw it", "Draw three boxes for solid, liquid and gas. Add particle dots in the correct arrangement.", "Solid: regular close rows. Liquid: close but random. Gas: far apart and random."],
+          ["Practical", "A student heats ice and records the temperature every minute. What should they put on the x-axis of a line graph?", "Time, usually in minutes."],
+          ["Safety", "Name the flame used when the Bunsen burner is on but not actively heating.", "The yellow safety flame."],
+          ["Periodic table", "Circle the best answer: elements in the same group usually have similar names, similar properties, or similar colours?", "Similar properties."]
+        ],
+        script: [
+          "Topic one. Matter and particles.",
+          "The key idea is simple: everything is made of tiny particles.",
+          "In a solid, particles are close together. They vibrate, but they stay in fixed positions.",
+          "In a liquid, particles are still close together, but they can slide past each other. That is why liquids flow.",
+          "In a gas, particles are far apart and move quickly in all directions.",
+          "Melting, freezing, boiling, evaporation and condensation are changes of state. They are physical changes.",
+          "During melting or boiling, the temperature can stay steady. The energy is being used to change the arrangement of the particles.",
+          "The periodic table arranges elements. Elements in the same group often have similar properties.",
+          "Two useful groups to recognise are alkali metals and halogens.",
+          "Remember the Bunsen burner. Yellow flame means safety flame. Blue flame means heating flame.",
+          "Quick check. What is the difference between an element and a compound?"
+        ]
+      },
+      {
+        title: "Topic 2: Chemical Reactions",
+        subtitle: "Reactants, products, evidence for reactions, conservation of mass, oxidation, combustion, decomposition and precipitation.",
+        examFocus: ["Evidence of reaction", "Word equations", "Conservation of mass", "Safety"],
+        bigIdea: "In a chemical reaction, atoms rearrange to make new substances with different properties.",
+        mustKnow: [
+          { title: "Reactants and products", text: "Reactants are the substances you start with. Products are the new substances made in the reaction." },
+          { title: "Evidence of a reaction", text: "Look for colour change, bubbles, a precipitate, light, smell, or a temperature change. These clues suggest a new substance may have formed." },
+          { title: "Conservation of mass", text: "Atoms are not created or destroyed in a chemical reaction. In a closed system, the total mass of reactants equals the total mass of products." },
+          { title: "Common reaction types", text: "Oxidation involves oxygen. Combustion is burning in oxygen. Thermal decomposition breaks a substance down using heat. Precipitation makes an insoluble solid from solutions." },
+          { title: "Word equations", text: "A word equation shows reactants on the left and products on the right: magnesium + oxygen -> magnesium oxide." }
+        ],
+        practical: [
+          "Mix substances safely in small amounts and follow instructions exactly.",
+          "Identify evidence of a chemical reaction: colour change, bubbles, precipitate, or temperature change.",
+          "Use basic lab safety: goggles, stand up when heating, tie hair back, keep bags away, report spills."
+        ],
+        diagram: {
+          title: "Exam diagram: evidence of a reaction",
+          svg: `<svg viewBox="0 0 760 250" role="img" aria-label="Evidence of chemical reactions">
+            <rect width="760" height="250" fill="#fbfdfc"/>
+            <text x="40" y="32" font-size="18" font-weight="700" fill="#15201d">Reaction clues</text>
+            <g stroke="#15201d" stroke-width="2" fill="none">
+              <path d="M80 65 h90 l-18 130 h-54 z"/>
+              <path d="M255 65 h90 l-18 130 h-54 z"/>
+              <path d="M430 65 h90 l-18 130 h-54 z"/>
+              <path d="M605 65 h90 l-18 130 h-54 z"/>
+            </g>
+            <rect x="97" y="130" width="56" height="55" fill="#f2d35b" opacity="0.75"/>
+            <rect x="272" y="130" width="56" height="55" fill="#7ed6df" opacity="0.75"/>
+            <rect x="447" y="130" width="56" height="55" fill="#e6f4f1" opacity="0.9"/>
+            <rect x="622" y="130" width="56" height="55" fill="#ffd6d0" opacity="0.75"/>
+            <g fill="#136f63">
+              <circle cx="285" cy="114" r="6"/><circle cx="303" cy="100" r="5"/><circle cx="318" cy="119" r="4"/>
+            </g>
+            <g fill="#ffffff" stroke="#136f63">
+              <circle cx="468" cy="154" r="5"/><circle cx="482" cy="166" r="5"/><circle cx="455" cy="174" r="5"/>
+            </g>
+            <path d="M648 115 v-40" stroke="#8b2e20" stroke-width="4"/>
+            <circle cx="648" cy="130" r="16" fill="#ff7a59" stroke="#8b2e20"/>
+            <text x="70" y="220" font-size="15" fill="#60716c">Colour change</text>
+            <text x="260" y="220" font-size="15" fill="#60716c">Bubbles</text>
+            <text x="430" y="220" font-size="15" fill="#60716c">Precipitate</text>
+            <text x="600" y="220" font-size="15" fill="#60716c">Temperature change</text>
+          </svg>`,
+          labels: [
+            ["What do bubbles often show?", "A gas may have been made."],
+            ["What is a precipitate?", "An insoluble solid made during a reaction."],
+            ["What should you wear when mixing chemicals?", "Safety goggles."]
+          ]
+        },
+        vocab: [
+          ["reactant", "reactivo"], ["product", "producto"], ["chemical reaction", "reaccion quimica"],
+          ["precipitate", "precipitado"], ["bubbles", "burbujas"], ["temperature change", "cambio de temperatura"],
+          ["oxidation", "oxidacion"], ["combustion", "combustion"], ["decomposition", "descomposicion"], ["conservation of mass", "conservacion de la masa"]
+        ],
+        questions: [
+          ["What are reactants?", "The starting substances in a chemical reaction."],
+          ["Name three signs of a chemical reaction.", "Examples: colour change, bubbles, precipitate, temperature change, light, smell."],
+          ["What does conservation of mass mean?", "The total mass stays the same because atoms are not created or destroyed."],
+          ["What is combustion?", "A reaction where a substance burns in oxygen."],
+          ["What is a precipitate?", "An insoluble solid formed when two solutions react."]
+        ],
+        examPractice: [
+          ["Word equation", "Complete this word equation: magnesium + oxygen -> ______", "magnesium oxide"],
+          ["Evidence", "A clear liquid turns cloudy when two solutions are mixed. What evidence of reaction is this?", "A precipitate has formed."],
+          ["Conservation of mass", "In a closed flask, 5 g of reactants make products. What is the total mass of products?", "5 g."],
+          ["Safety", "Give two safety rules for mixing chemicals in a school lab.", "Wear goggles; use small amounts; do not taste chemicals; follow instructions; report spills."]
+        ],
+        script: [
+          "Topic two. Chemical reactions.",
+          "In a chemical reaction, the atoms rearrange and new substances are made.",
+          "The substances at the start are called reactants. The substances made are called products.",
+          "Evidence of a reaction can include a colour change, bubbles, a precipitate, or a temperature change.",
+          "A precipitate is an insoluble solid that forms when two solutions react.",
+          "Conservation of mass means atoms are not created or destroyed.",
+          "In a closed system, the mass before the reaction equals the mass after the reaction.",
+          "For practical work, wear goggles, use small amounts, and follow the method exactly.",
+          "Quick check. What signs tell you that a chemical reaction may have happened?"
+        ]
+      },
+      {
+        title: "Topic 3: Separating Mixtures",
+        subtitle: "Pure substances, mixtures, solutions, solubility, variables, filtration, evaporation, distillation and chromatography.",
+        examFocus: ["Filtration", "Evaporation", "Distillation", "Chromatography"],
+        bigIdea: "Mixtures can be separated because the substances in them have different physical properties.",
+        mustKnow: [
+          { title: "Pure substances and mixtures", text: "A pure substance contains only one substance. A mixture contains two or more substances that are not chemically joined." },
+          { title: "Solutions and dissolving", text: "A solute dissolves in a solvent to make a solution. If no more solute can dissolve, the solution is saturated." },
+          { title: "Filtration", text: "Filtration separates an insoluble solid from a liquid. The solid stays in the filter paper as residue; the liquid that passes through is the filtrate." },
+          { title: "Evaporation and distillation", text: "Evaporation separates a soluble solid from a solution. Simple distillation separates a liquid from a solution by boiling and condensing it." },
+          { title: "Chromatography", text: "Paper chromatography separates dissolved colours or substances. Substances move different distances because they have different solubilities and attractions to the paper." },
+          { title: "Variables", text: "The independent variable is changed, the dependent variable is measured, and control variables are kept the same." }
+        ],
+        practical: [
+          "Filtration: use filter paper and a funnel to separate sand from water.",
+          "Evaporation: heat a solution to leave a dissolved solid behind.",
+          "Simple distillation: evaporate and then condense a liquid to collect it.",
+          "Paper chromatography: use a pencil baseline and keep the ink spot above the solvent."
+        ],
+        diagram: {
+          title: "Exam diagram: separation methods",
+          svg: `<svg viewBox="0 0 760 300" role="img" aria-label="Filtration, distillation and chromatography diagrams">
+            <rect width="760" height="300" fill="#fbfdfc"/>
+            <text x="35" y="30" font-size="18" font-weight="700" fill="#15201d">Filtration</text>
+            <path d="M55 60 h120 l-48 70 v80 h-24 v-80 z" fill="#e6f4f1" stroke="#136f63" stroke-width="2"/>
+            <path d="M78 72 h74 l-36 52 z" fill="#ffffff" stroke="#60716c"/>
+            <rect x="88" y="208" width="55" height="45" fill="#7ed6df" opacity="0.7" stroke="#15201d"/>
+            <text x="42" y="278" font-size="14" fill="#60716c">residue in paper, filtrate below</text>
+            <text x="275" y="30" font-size="18" font-weight="700" fill="#15201d">Simple distillation</text>
+            <circle cx="325" cy="170" r="44" fill="#e6f4f1" stroke="#15201d" stroke-width="2"/>
+            <rect x="304" y="176" width="42" height="28" fill="#7ed6df" opacity="0.8"/>
+            <path d="M360 145 C410 110 465 110 515 145" fill="none" stroke="#136f63" stroke-width="5"/>
+            <path d="M515 145 v58 h46" fill="none" stroke="#136f63" stroke-width="5"/>
+            <rect x="548" y="205" width="45" height="50" fill="#7ed6df" opacity="0.7" stroke="#15201d"/>
+            <path d="M298 224 h55 l-28 42 z" fill="#ffd166" stroke="#8b2e20"/>
+            <text x="285" y="278" font-size="14" fill="#60716c">boil, condense, collect liquid</text>
+            <text x="625" y="30" font-size="18" font-weight="700" fill="#15201d">Chromatography</text>
+            <rect x="642" y="55" width="52" height="150" fill="#ffffff" stroke="#15201d"/>
+            <line x1="642" y1="172" x2="694" y2="172" stroke="#60716c" stroke-dasharray="4 3"/>
+            <circle cx="668" cy="163" r="5" fill="#15201d"/>
+            <circle cx="660" cy="115" r="6" fill="#2f80ed"/><circle cx="675" cy="95" r="6" fill="#ff7a59"/><circle cx="668" cy="132" r="6" fill="#136f63"/>
+            <rect x="628" y="205" width="80" height="38" fill="#7ed6df" opacity="0.45" stroke="#15201d"/>
+            <text x="607" y="278" font-size="14" fill="#60716c">spot above solvent</text>
+          </svg>`,
+          labels: [
+            ["In filtration, what is the solid left in the paper called?", "Residue."],
+            ["In distillation, why is vapour cooled?", "To condense it back into a liquid."],
+            ["In chromatography, where should the ink spot be?", "Above the solvent level on a pencil baseline."]
+          ]
+        },
+        vocab: [
+          ["mixture", "mezcla"], ["pure substance", "sustancia pura"], ["solution", "disolucion"],
+          ["solute", "soluto"], ["solvent", "disolvente"], ["saturated", "saturada"],
+          ["filtration", "filtracion"], ["residue", "residuo"], ["filtrate", "filtrado"],
+          ["evaporation", "evaporacion"], ["distillation", "destilacion"], ["chromatography", "cromatografia"], ["variable", "variable"]
+        ],
+        questions: [
+          ["Which method separates an insoluble solid from a liquid?", "Filtration."],
+          ["What is the liquid called after it passes through filter paper?", "The filtrate."],
+          ["Which method would you use to get salt from salty water?", "Evaporation, or distillation if you want to collect the water too."],
+          ["Why is a pencil used for the baseline in chromatography?", "Pencil does not dissolve and run in the solvent."],
+          ["What is the dependent variable?", "The variable you measure."]
+        ],
+        examPractice: [
+          ["Choose a method", "Which method separates sand from water: evaporation, filtration, distillation or chromatography?", "Filtration."],
+          ["Label it", "In filtration, name the solid left in the filter paper and the liquid collected below.", "Solid: residue. Liquid: filtrate."],
+          ["Chromatography", "Why must the ink spot start above the solvent level?", "So the sample does not dissolve directly into the solvent before travelling up the paper."],
+          ["Variables", "A student tests how temperature affects how much salt dissolves. Name the independent variable and dependent variable.", "Independent variable: temperature. Dependent variable: amount of salt that dissolves."]
+        ],
+        script: [
+          "Topic three. Separating mixtures.",
+          "This is a practical-heavy topic, so learn the methods clearly.",
+          "A mixture contains substances that are not chemically joined. That means they can often be separated by physical methods.",
+          "Filtration separates an insoluble solid from a liquid.",
+          "The solid left in the filter paper is the residue. The liquid that passes through is the filtrate.",
+          "Evaporation separates a soluble solid from a solution.",
+          "Simple distillation separates a liquid from a solution by boiling and then condensing the vapour.",
+          "Paper chromatography separates dissolved substances such as colours in ink.",
+          "Use a pencil baseline. Keep the ink spot above the solvent level.",
+          "Quick check. Which separation method would you use for sand and water?"
+        ]
+      },
+      {
+        title: "Topic 4: Acids, Alkalis and pH",
+        subtitle: "Acids, alkalis, universal indicator, pH scale, neutralisation and everyday chemistry.",
+        examFocus: ["Universal indicator", "pH scale", "Neutralisation", "Safe handling"],
+        bigIdea: "The pH scale tells us how acidic or alkaline a solution is. Neutralisation happens when an acid and an alkali react.",
+        mustKnow: [
+          { title: "Acids and alkalis", text: "Acids have pH values below 7. Alkalis have pH values above 7. Neutral solutions have pH 7." },
+          { title: "Universal indicator", text: "Universal indicator changes colour depending on pH: red/orange for acids, green for neutral, blue/purple for alkalis." },
+          { title: "The pH scale", text: "A lower pH means more acidic. A higher pH means more alkaline. Strong acids and strong alkalis can be hazardous." },
+          { title: "Neutralisation", text: "An acid reacts with an alkali to make a salt and water. The general word equation is: acid + alkali -> salt + water." },
+          { title: "Everyday examples", text: "Vinegar and lemon juice are acidic. Soap and some cleaning products are alkaline. Indigestion tablets neutralise excess stomach acid." }
+        ],
+        practical: [
+          "Use universal indicator to test unknown solutions.",
+          "Read the pH scale and match colours to acidic, neutral or alkaline.",
+          "Handle acids and alkalis safely: goggles, small amounts, wash spills, never taste chemicals.",
+          "Understand neutralisation using a simple acid plus alkali experiment."
+        ],
+        diagram: {
+          title: "Exam diagram: pH scale and neutralisation",
+          svg: `<svg viewBox="0 0 760 250" role="img" aria-label="pH scale and neutralisation">
+            <rect width="760" height="250" fill="#fbfdfc"/>
+            <text x="35" y="32" font-size="18" font-weight="700" fill="#15201d">pH scale</text>
+            <g font-size="13" fill="#15201d" text-anchor="middle">
+              <rect x="40" y="65" width="45" height="42" fill="#d73027"/><text x="62" y="91">1</text>
+              <rect x="85" y="65" width="45" height="42" fill="#f46d43"/><text x="107" y="91">3</text>
+              <rect x="130" y="65" width="45" height="42" fill="#fdae61"/><text x="152" y="91">5</text>
+              <rect x="175" y="65" width="45" height="42" fill="#66bd63"/><text x="197" y="91">7</text>
+              <rect x="220" y="65" width="45" height="42" fill="#74add1"/><text x="242" y="91">9</text>
+              <rect x="265" y="65" width="45" height="42" fill="#4575b4"/><text x="287" y="91">11</text>
+              <rect x="310" y="65" width="45" height="42" fill="#5e4fa2"/><text x="332" y="91">14</text>
+            </g>
+            <text x="85" y="135" font-size="15" fill="#60716c">acidic</text>
+            <text x="180" y="135" font-size="15" fill="#60716c">neutral</text>
+            <text x="270" y="135" font-size="15" fill="#60716c">alkaline</text>
+            <text x="455" y="32" font-size="18" font-weight="700" fill="#15201d">Neutralisation</text>
+            <g stroke="#15201d" stroke-width="2" fill="none">
+              <path d="M455 70 h65 l-13 110 h-39 z"/>
+              <path d="M580 70 h65 l-13 110 h-39 z"/>
+              <path d="M525 122 h45"/>
+              <path d="M548 100 v45"/>
+              <path d="M660 122 h45"/>
+            </g>
+            <rect x="468" y="130" width="39" height="40" fill="#f46d43" opacity="0.75"/>
+            <rect x="593" y="130" width="39" height="40" fill="#4575b4" opacity="0.75"/>
+            <text x="487" y="205" font-size="15" text-anchor="middle" fill="#60716c">acid</text>
+            <text x="612" y="205" font-size="15" text-anchor="middle" fill="#60716c">alkali</text>
+            <text x="685" y="205" font-size="15" text-anchor="middle" fill="#60716c">salt + water</text>
+          </svg>`,
+          labels: [
+            ["What pH is neutral?", "pH 7."],
+            ["What colour is universal indicator near neutral?", "Green."],
+            ["Complete the equation: acid + alkali ->", "Salt + water."]
+          ]
+        },
+        vocab: [
+          ["acid", "acido"], ["alkali", "alcali"], ["neutral", "neutro"],
+          ["pH scale", "escala de pH"], ["universal indicator", "indicador universal"],
+          ["neutralisation", "neutralizacion"], ["salt", "sal"], ["hazard", "peligro"],
+          ["corrosive", "corrosivo"], ["irritant", "irritante"]
+        ],
+        questions: [
+          ["What pH is neutral?", "pH 7."],
+          ["What colour is universal indicator in a neutral solution?", "Green."],
+          ["What does an acid plus an alkali make?", "A salt and water."],
+          ["Is pH 3 acidic or alkaline?", "Acidic."],
+          ["Why must you wear goggles with acids and alkalis?", "They can irritate or damage eyes and skin."]
+        ],
+        examPractice: [
+          ["Read the scale", "A solution turns universal indicator blue. Is it acidic, neutral or alkaline?", "Alkaline."],
+          ["Complete equation", "Complete: acid + alkali -> ______ + ______", "salt + water"],
+          ["Compare", "Which is more acidic: pH 2 or pH 5?", "pH 2, because lower pH means more acidic."],
+          ["Practical", "How could you test an unknown solution safely to estimate its pH?", "Use a small amount of the solution, add universal indicator, compare the colour with a pH chart, and wear goggles."]
+        ],
+        script: [
+          "Topic four. Acids, alkalis and pH.",
+          "The pH scale tells us whether a solution is acidic, neutral, or alkaline.",
+          "Acids have pH values below seven. Alkalis have pH values above seven. Neutral is pH seven.",
+          "Universal indicator changes colour. Red and orange mean acidic. Green means neutral. Blue and purple mean alkaline.",
+          "Neutralisation is a reaction between an acid and an alkali.",
+          "The products are a salt and water.",
+          "The word equation is: acid plus alkali makes salt plus water.",
+          "In practical work, wear goggles, use small amounts, and never taste chemicals.",
+          "Quick check. What colour is universal indicator at pH seven?"
+        ]
+      }
+    ];
+
+    const content = document.getElementById("content");
+    const topicNav = document.getElementById("topicNav");
+    const playButton = document.getElementById("play");
+    const pauseButton = document.getElementById("pause");
+    const stopButton = document.getElementById("stop");
+    const rateInput = document.getElementById("rate");
+    const voiceSelect = document.getElementById("voice");
+    const statusBox = document.getElementById("status");
+    const modeButtons = [...document.querySelectorAll("[data-mode]")];
+
+    let topicIndex = 0;
+    let mode = "study";
+    let voices = [];
+    let scriptIndex = 0;
+    let playing = false;
+
+    function el(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    }
+
+    function setStatus(text) {
+      statusBox.textContent = text;
+    }
+
+    function renderNav() {
+      topicNav.innerHTML = "";
+      topics.forEach((topic, index) => {
+        const button = el("button", "topic-button" + (index === topicIndex ? " active" : ""));
+        button.type = "button";
+        button.innerHTML = `${topic.title}<span>${topic.examFocus.join(" | ")}</span>`;
+        button.addEventListener("click", () => {
+          stopAudio();
+          topicIndex = index;
+          scriptIndex = 0;
+          render();
+          setStatus(`Selected: ${topic.title}`);
+        });
+        topicNav.appendChild(button);
+      });
+    }
+
+    function renderBadges(topic, parent) {
+      const row = el("div", "badge-row");
+      topic.examFocus.forEach(item => row.appendChild(el("span", "badge", item)));
+      parent.appendChild(row);
+    }
+
+    function renderStudy(topic) {
+      const grid = el("div", "grid");
+      const idea = el("section", "card");
+      idea.appendChild(el("div", "mini-title", "Big idea"));
+      idea.appendChild(el("p", "", topic.bigIdea));
+      grid.appendChild(idea);
+
+      const practical = el("section", "card practical");
+      practical.appendChild(el("div", "mini-title", "Practical skills"));
+      const practicalList = el("ul");
+      topic.practical.forEach(item => practicalList.appendChild(el("li", "", item)));
+      practical.appendChild(practicalList);
+      grid.appendChild(practical);
+
+      if (topic.memory) {
+        const memory = el("section", "card memory-card");
+        memory.appendChild(el("div", "mini-title", topic.memory.title));
+        const memoryList = el("ul");
+        topic.memory.points.forEach(item => memoryList.appendChild(el("li", "", item)));
+        memory.appendChild(memoryList);
+        grid.appendChild(memory);
+      }
+
+      topic.mustKnow.forEach(item => {
+        const card = el("section", "card");
+        card.appendChild(el("h3", "", item.title));
+        card.appendChild(el("p", "", item.text));
+        grid.appendChild(card);
+      });
+
+      if (topic.diagram) renderDiagram(topic, grid);
+      if (topic.examPractice) renderExamPractice(topic, grid);
+
+      content.appendChild(grid);
+    }
+
+    function renderDiagram(topic, parent) {
+      const card = el("section", "card diagram-card");
+      card.appendChild(el("div", "mini-title", topic.diagram.title));
+      const diagram = el("div", "diagram");
+      diagram.innerHTML = topic.diagram.svg;
+      card.appendChild(diagram);
+
+      const labelCheck = el("div", "label-check");
+      topic.diagram.labels.forEach(([q, a], index) => {
+        const details = el("details");
+        details.appendChild(el("summary", "", `Label check ${index + 1}: ${q}`));
+        details.appendChild(el("p", "", a));
+        labelCheck.appendChild(details);
+      });
+      card.appendChild(labelCheck);
+      parent.appendChild(card);
+    }
+
+    function renderExamPractice(topic, parent) {
+      const card = el("section", "card exam-practice");
+      card.appendChild(el("div", "mini-title", "Exam practice"));
+      const tasks = el("div", "task-list");
+      topic.examPractice.forEach(([type, prompt, answer], index) => {
+        const details = el("details");
+        const summary = el("summary");
+        const tag = el("span", "task-type", type);
+        const text = el("span", "task-prompt", ` ${index + 1}. ${prompt}`);
+        summary.appendChild(tag);
+        summary.appendChild(text);
+        details.appendChild(summary);
+        details.appendChild(el("p", "", answer));
+        tasks.appendChild(details);
+      });
+      card.appendChild(tasks);
+      parent.appendChild(card);
+    }
+
+    function renderVocab(topic) {
+      const card = el("section", "card");
+      card.appendChild(el("div", "mini-title", "Vocabulary thesaurus"));
+      const table = el("table");
+      table.innerHTML = "<thead><tr><th>English</th><th>Spanish</th></tr></thead>";
+      const body = el("tbody");
+      topic.vocab.forEach(([en, es]) => {
+        const row = el("tr");
+        row.innerHTML = `<td>${en}</td><td>${es}</td>`;
+        body.appendChild(row);
+      });
+      table.appendChild(body);
+      card.appendChild(table);
+      content.appendChild(card);
+    }
+
+    function renderQuiz(topic) {
+      const grid = el("div", "grid");
+      topic.questions.forEach(([q, a], index) => {
+        const details = el("details");
+        const summary = el("summary", "", `${index + 1}. ${q}`);
+        const answer = el("p", "", a);
+        details.appendChild(summary);
+        details.appendChild(answer);
+        grid.appendChild(details);
+      });
+      content.appendChild(grid);
+    }
+
+    function renderScript(topic) {
+      const card = el("section", "card");
+      card.appendChild(el("div", "mini-title", "Speaker script"));
+      topic.script.forEach((line, index) => {
+        const p = el("p", index === scriptIndex ? "speaker-line" : "", line);
+        card.appendChild(p);
+      });
+      content.appendChild(card);
+    }
+
+    function render() {
+      const topic = topics[topicIndex];
+      content.innerHTML = "";
+      const head = el("section", "topic-head");
+      head.appendChild(el("h2", "", topic.title));
+      head.appendChild(el("p", "sub", topic.subtitle));
+      renderBadges(topic, head);
+      content.appendChild(head);
+
+      if (mode === "study") {
+        renderStudy(topic);
+        renderVocab(topic);
+        renderQuiz(topic);
+      }
+      if (mode === "exam") {
+        const grid = el("div", "grid");
+        if (topic.diagram) renderDiagram(topic, grid);
+        if (topic.examPractice) renderExamPractice(topic, grid);
+        content.appendChild(grid);
+      }
+      if (mode === "quiz") renderQuiz(topic);
+      if (mode === "script") renderScript(topic);
+
+      renderNav();
+      modeButtons.forEach(button => button.classList.toggle("active", button.dataset.mode === mode));
+    }
+
+    function loadVoices() {
+      voices = "speechSynthesis" in window ? window.speechSynthesis.getVoices() : [];
+      voiceSelect.innerHTML = "";
+      const englishVoices = voices.filter(voice => /^en[-_]/i.test(voice.lang || ""));
+      const usable = englishVoices.length ? englishVoices : voices;
+
+      usable.forEach(voice => {
+        const option = document.createElement("option");
+        option.value = voice.name;
+        option.textContent = `${voice.name} (${voice.lang})`;
+        voiceSelect.appendChild(option);
+      });
+
+      const preferred = usable.find(voice => /ryan/i.test(voice.name))
+        || usable.find(voice => /en[-_]gb/i.test(voice.lang || ""))
+        || usable[0];
+
+      if (preferred) voiceSelect.value = preferred.name;
+
+      if (!usable.length) {
+        const option = document.createElement("option");
+        option.value = "";
+        option.textContent = "Default browser voice";
+        voiceSelect.appendChild(option);
+      }
+    }
+
+    function selectedVoice() {
+      return voices.find(voice => voice.name === voiceSelect.value) || null;
+    }
+
+    function speakNext() {
+      if (!playing) return;
+      if (!("speechSynthesis" in window)) {
+        setStatus("Speech is not supported in this browser.");
+        playing = false;
+        return;
+      }
+
+      const topic = topics[topicIndex];
+      if (scriptIndex >= topic.script.length) {
+        setStatus("Finished this topic.");
+        playing = false;
+        scriptIndex = 0;
+        render();
+        return;
+      }
+
+      render();
+      const line = topic.script[scriptIndex];
+      const utterance = new SpeechSynthesisUtterance(line);
+      utterance.lang = "en-GB";
+      utterance.rate = Number(rateInput.value);
+      utterance.pitch = 1;
+      utterance.voice = selectedVoice();
+      utterance.onstart = () => setStatus(`Playing line ${scriptIndex + 1} of ${topic.script.length}`);
+      utterance.onerror = () => {
+        setStatus("Audio error. Try another browser voice.");
+        playing = false;
+      };
+      utterance.onend = () => {
+        scriptIndex += 1;
+        window.setTimeout(speakNext, line.includes("Quick check") ? 3200 : 450);
+      };
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function playAudio() {
+      if (!("speechSynthesis" in window)) {
+        setStatus("Speech is not supported in this browser.");
+        return;
+      }
+
+      if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
+        playing = true;
+        setStatus("Playing.");
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+      playing = true;
+      speakNext();
+    }
+
+    function pauseAudio() {
+      if ("speechSynthesis" in window && window.speechSynthesis.speaking) {
+        window.speechSynthesis.pause();
+        setStatus("Paused.");
+      }
+    }
+
+    function stopAudio() {
+      playing = false;
+      scriptIndex = 0;
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+      setStatus("Stopped.");
+      render();
+    }
+
+    modeButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        mode = button.dataset.mode;
+        render();
+      });
+    });
+
+    playButton.addEventListener("click", playAudio);
+    pauseButton.addEventListener("click", pauseAudio);
+    stopButton.addEventListener("click", stopAudio);
+
+    if ("speechSynthesis" in window) {
+      loadVoices();
+      window.speechSynthesis.onvoiceschanged = loadVoices;
+    } else {
+      setStatus("Speech is not supported in this browser.");
+    }
+
+    render();
+  </script>
+</body>
+</html>
